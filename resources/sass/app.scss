@@ -1,0 +1,99 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700&display=swap');
+
+.nav-primary{
+  @apply h-16 bg-black w-full;
+}
+
+.btn-primary{
+  @apply bg-primary text-center p-btn rounded-sm text-black
+}
+
+.btn-secondary{
+  @apply shadow-btn-secondary text-center p-btn rounded-sm text-black
+}
+
+.filter-link-active{
+  @apply bg-grey rounded
+}
+
+.filter-link{
+  @apply text-black p-btn font-medium
+}
+
+.filter-link:hover{
+  @apply bg-grey rounded
+}
+
+.filter-area{
+  @apply w-full h-16 bg-white flex flex-row items-center justify-between shadow-outlined
+}
+
+.image-item{
+  @apply h-64 rounded border-solid border-white shadow-image-item p-2;
+  border-width: 8px;
+  margin-bottom: 20px;
+}
+
+.p-primary{
+  padding: 25px;
+}
+
+@media (min-width: 768px) { 
+  .p-primary{
+    padding: 80px;
+  }
+}
+
+.item-meta{
+  @apply flex flex-row justify-between
+}
+
+.item-display{
+  height: 80%;
+  overflow: hidden
+}
+
+.item-display img{
+  border-radius: 3px;
+}
+
+@keyframes shiny{
+  0%{
+    background: linear-gradient( #AEFFAC 0%,  #5a8259 100%)
+  }
+
+  25%{
+    background: linear-gradient(#AEFFAC 25%, #5a8259 75%) 
+  }
+
+  50%{
+    background: linear-gradient(#AEFFAC 50%,#5a8259 50%)
+  }
+
+  100%{
+    background:linear-gradient(#AEFFAC 25%, #5a8259 75%)
+  }
+}
+
+.shiny-green{
+  // animation-name: shiny;
+  animation-iteration-count: infinite;
+  animation-duration: 4s;
+  animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  background:linear-gradient(to right, #AEFFAC, #5a8259);
+  transition: all 2s;  
+}
+
+/**
+* Vue Transitions
+*
+*/
+.slideDown{
+  
+}
