@@ -41,8 +41,8 @@ export default {
     methods: {
         shotModal(event){
             event.preventDefault();         
-            this.$store.commit('viewImage')
-            this.$store.state.showImagePop ? document.body.style.overflow = "hidden" : document.body.style.overflow = "scroll";
+            this.$store.commit('showImageModal')
+            document.body.style.overflow = "hidden";
         }
     },
 }

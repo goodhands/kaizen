@@ -38,7 +38,7 @@
                         <a href="#" class="btn-primary font-medium">Follow @xshots</a>
                     </div>
                 </div>
-                <span class="dash block h-dash w-full bg-dark-grey my-2"></span>
+                <span class="dash"></span>
                 <div class="description-area">
                     <p class="leading-snug text-sm">
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate qui dolorem optio expedita, voluptatum dolores ut, veniam possimus sunt praesentium voluptates esse nemo magnam. Nisi quos a commodi nulla ipsum?
@@ -136,6 +136,7 @@
 
             </div>
         </template>
+        <span @click="closeModal" class="inset-0 text-white text-2xl text-lowercase cursor-pointer">X</span>        
     </modal>
 </template>
 
@@ -148,18 +149,15 @@ export default {
             
         }
     },
-
+    methods: {
+        closeModal (){
+            this.$store.commit('closeImageModal')
+            document.body.style.overflow = "scroll";
+            document.body.style.overflowX = "hidden";
+        },
+    },
     props:{
         data: Object
     },
 }
 </script>
-
-<style scoped>
-    .image-display-main{
-        /* margin-left: -20px;
-        margin-right: -20px;
-        margin-top: 10px;
-        margin-bottom: 10px; */
-    }
-</style>

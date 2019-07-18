@@ -12,16 +12,34 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
     state: {
-        showImagePop: false
+        showImageModal: false,
+        showSignUpModal: false,
+        //we need to allow users to switch from sign-up to sign-in without loading
+        showSignIn: false,
+        showSignUp: true
     },
 
     mutations:{
-        viewImage(state) {
-            state.showImagePop = true
+        showImageModal(state) {
+            state.showImageModal = true
         },
 
-        closeImage(state){
-            state.showImagePop = false
+        closeImageModal(state){
+            state.showImageModal = false
+        },
+
+        showSignUpModal(state){
+            state.showSignUpModal = true
+        },
+
+        switchToSignIn(state){
+            state.showSignIn = true
+            state.showSignUp = false
+        },
+
+        switchToSignUp(state){
+            state.showSignUp = true
+            state.showSignIn = false
         }
     },
 
@@ -46,6 +64,9 @@ Vue.component('image-card', require('./components/ImageCard.vue').default);
 Vue.component('image-popup', require('./components/ImagePopup.vue').default);
 Vue.component('modal', require('./components/Modal.vue').default);
 Vue.component('end-of-scroll', require('./components/EndOfScroll.vue').default);
+Vue.component('in-app-auth', require('./components/InAppAuth.vue').default);
+Vue.component('sign-in', require('./components/SignIn.vue').default);
+Vue.component('sign-up', require('./components/SignUp.vue').default);
 
 Vue.directive('overlay-bg', {
     inserted: function(el, binding){
@@ -60,5 +81,16 @@ Vue.directive('overlay-bg', {
 
 const app = new Vue({
     el: '#app',
-    store
+    store,
+    methods: {
+        signUpModal(){
+            this.$store.commit('showSignUpModal')
+            this.$store.commit('switchToSignUp')
+        },
+
+        signInModal(){
+            this.$store.commit('showSignUpModal')
+            this.$store.commit('switchToSignIn')
+        }
+    },
 });

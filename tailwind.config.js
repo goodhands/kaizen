@@ -29,9 +29,11 @@ module.exports = {
         grey: 'lightgrey',
         'white-ter': '#F9F9F9',
         'dark-grey': '#efeeee',
+        'darker-grey': '#6A7391',
         'light-dark': '#3e3e3e',
         'fade-black': 'rgba(0,0,0,0.45)',
-        'subtitle': '#727272'
+        'subtitle': '#727272',
+        'red': 'orangered'
       },
 
       boxShadow:{
@@ -45,6 +47,7 @@ module.exports = {
       },
       padding: {
         primary: '80px',
+        normal: '1.25rem',
         btn: '0.05rem 0.6rem'
       },
       spacing: {

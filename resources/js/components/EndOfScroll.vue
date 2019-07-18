@@ -8,14 +8,27 @@
             you have come to the right place. Explore teams.
         </p>
         <div class="flex flex-row w-8/12 md:w-2/12 lg:w-2/12 items-center justify-between mt-2">
-            <button class="btn-primary font-medium" @click="signUp != true">I am hiring</button>
-            <button class="btn-primary font-medium" @click="signUp != true">I am a creator</button>
+            <button class="btn-primary font-medium" @click="signUpModal()">I am hiring</button>
+            <button class="btn-primary font-medium" @click="signInModal()">Sign in</button>
         </div>
+        <in-app-auth :modal="true" v-if="this.$store.state.showSignUpModal"></in-app-auth>
     </div>
 </template>
 
 <script>
+import Modal from './Modal.vue'
+import InAppAuth from './InAppAuth.vue'
+
 export default {
-    
+    methods: {
+        signUpModal(){
+            this.$store.commit('showSignUpModal')
+            this.$store.commit('switchToSignUp')
+        },
+        signInModal(){
+            this.$store.commit('showSignUpModal')
+            this.$store.commit('switchToSignIn')
+        }
+    },
 }
 </script>

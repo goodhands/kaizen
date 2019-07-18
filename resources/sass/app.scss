@@ -81,6 +81,10 @@
   }
 }
 
+.dash{
+  @apply block h-dash w-full bg-dark-grey my-2
+}
+
 .shiny-green{
   // animation-name: shiny;
   animation-iteration-count: infinite;
