@@ -3,10 +3,11 @@
     <head>
         @include('partials.head')
     </head>
-    @include('partials.nav')
     <body class="font-sans text-base text-grey-darker leading-loose">
         <div id="app">
+            @include('partials.nav')
             @yield('main_content')
+            <app-footer></app-footer>
         </div>
-        @include('partials.footer')
+        <script src="{{ asset('js/app.js') }}"></script>
     </body>

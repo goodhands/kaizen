@@ -16,7 +16,8 @@ const store = new Vuex.Store({
         showSignUpModal: false,
         //we need to allow users to switch from sign-up to sign-in without loading
         showSignIn: false,
-        showSignUp: true
+        showSignUp: true,
+        userLoggedIn: true
     },
 
     mutations:{
@@ -67,6 +68,13 @@ Vue.component('end-of-scroll', require('./components/EndOfScroll.vue').default);
 Vue.component('in-app-auth', require('./components/InAppAuth.vue').default);
 Vue.component('sign-in', require('./components/SignIn.vue').default);
 Vue.component('sign-up', require('./components/SignUp.vue').default);
+Vue.component('app-footer', require('./components/Footer.vue').default);
+Vue.component('photo-single', require('./components/PhotoSingle.vue').default);
+Vue.component('nav-control', require('./components/NavControl.vue').default);
+Vue.component('upload-photo', require('./components/UploadPhoto.vue').default);
+Vue.component('discover-content', require('./components/DiscoverContent.vue').default);
+Vue.component('image-uploader', require('./components/ImageUploader.vue').default);
+Vue.component('user-profile', require('./components/UserProfile.vue').default);
 
 Vue.directive('overlay-bg', {
     inserted: function(el, binding){

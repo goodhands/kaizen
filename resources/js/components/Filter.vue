@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div class="filter-area px-20">
+    <div class="filter-area px-20 border-b-1 border-faint-black">
         <div class="fitler-items sm:w-1/2 overflow-hidden h-full flex flex-row items-center justify-between">
             <a href="#" class="filter-link filter-link-active">All</a>
             <a href="#" class="filter-link">Culture</a>

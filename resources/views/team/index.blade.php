@@ -1,0 +1,1 @@
+{{-- This page will list teams and also present a teaser for people to create their own teams --}}
