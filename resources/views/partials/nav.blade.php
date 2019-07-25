@@ -8,6 +8,7 @@
         <div class="nav-menu text-primary flex justify-between w-1/6">
             <a href="{{ url('/explore') }}">Explore</a>
             <a href="{{ url('/discover') }}">Discover</a>
+            <a href="#" class="relative">Projects</a>
             <a href="#" class="relative">Teams <span class="nav-info">coming soon!</span></a>
         </div>
         <nav-control></nav-control>

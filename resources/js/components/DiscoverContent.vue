@@ -79,7 +79,7 @@
                     </div>
                     <div class="t-image w-7/12 flex flex-col mx-3">
                         <h2 class="t-name text-xl font-bold font-primary leading-tight">
-                            <a href="#">
+                            <a href="/samuel">
                                 Ifelice Photography
                             </a>
                         </h2>

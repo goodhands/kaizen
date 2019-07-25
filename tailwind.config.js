@@ -41,7 +41,7 @@ module.exports = {
       boxShadow:{
         'outlined': '1px 1px 2px 0px rgba(0, 0, 0, 0.11)',
         'btn-secondary': '0px 0px 2px rgba(0, 0, 0, 0.25)',
-        'image-item': '0px 0px 1px rgba(0, 0, 0, 0.25)',
+        'small-outline': '0px 0px 1px rgba(0, 0, 0, 0.25)',
         'photo': '0px 0px 6px 0px rgba(0, 0, 0, 0.08)',
       },
 

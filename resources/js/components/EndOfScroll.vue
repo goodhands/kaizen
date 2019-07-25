@@ -11,7 +11,7 @@
             <button class="btn-primary font-medium" @click="signUpModal()">I am hiring</button>
             <button class="btn-primary font-medium" @click="signInModal()">Sign in</button>
         </div>
-        <in-app-auth :modal="true" v-if="this.$store.state.showSignUpModal"></in-app-auth>
+        <!-- <in-app-auth :modal="true" v-if="this.$store.state.showSignUpModal"></in-app-auth> -->
     </div>
 </template>
 

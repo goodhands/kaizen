@@ -139,7 +139,7 @@
             </template>
             <span @click="closeModal" class="close-btn">X</span>        
         </modal>
-        <div v-if="!modal" class="main-content m-auto w-8/12 bg-white h-auto rounded shadow-photo">
+        <div v-if="!modal" class="shadow-small-outline main-content m-auto w-8/12 bg-white h-auto rounded">
             <div class="header p-5 flex flex-row justify-between">
                 <div class="w-6/12 flex flex-row items-center">
                     <!-- <img src="../../../public/images/user.jpg" alt="" class="rounded-full h-12 w-12"> -->
