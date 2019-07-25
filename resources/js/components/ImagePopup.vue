@@ -3,7 +3,7 @@
         <modal v-if="modal">
             <template v-slot:head>
                 <div class="header p-5 flex flex-row justify-between">
-                    <div class="w-6/12 flex flex-row items-center">
+                    <div class="w-8/12 flex flex-row items-center">
                         <img src="images/user.jpg" alt="" class="rounded-full h-12 w-12">
                         <div class="flex flex-col mx-2">
                             <a href="#">
@@ -14,12 +14,12 @@
                             <p class="leading-none">Hello world</p>
                         </div>
                     </div>
-                    <div class="w-6/12 flex flex-row items-center justify-end content-center">
-                        <button class="btn-has-icon flex flex-row w-3/12 px-3 justify-between items-center bg-grey rounded br-1">
-                            <img src="images/favorite.svg" class="h-4 w-4" alt=""> Like
+                    <div class="w-2/12 flex flex-row items-center justify-between content-center">
+                        <button class="like-btn">
+                            <img src="images/favorite.svg" class="h-4 w-4" alt="">
                         </button>
-                        <button class="btn-has-icon flex flex-row w-3/12 px-3 justify-between items-center bg-grey rounded br-1">
-                            <img src="images/favorite.svg" class="h-4 w-4" alt=""> Save
+                        <button class="like-btn">
+                            <img src="images/favorite.svg" class="h-4 w-4" alt="">
                         </button>
                     </div>
                 </div>

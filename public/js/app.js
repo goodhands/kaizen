@@ -5639,7 +5639,7 @@ var render = function() {
                             _c(
                               "div",
                               {
-                                staticClass: "w-6/12 flex flex-row items-center"
+                                staticClass: "w-8/12 flex flex-row items-center"
                               },
                               [
                                 _c("img", {
@@ -5670,44 +5670,28 @@ var render = function() {
                               "div",
                               {
                                 staticClass:
-                                  "w-6/12 flex flex-row items-center justify-end content-center"
+                                  "w-2/12 flex flex-row items-center justify-between content-center"
                               },
                               [
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass:
-                                      "btn-has-icon flex flex-row w-3/12 px-3 justify-between items-center bg-grey rounded br-1"
-                                  },
-                                  [
-                                    _c("img", {
-                                      staticClass: "h-4 w-4",
-                                      attrs: {
-                                        src: "images/favorite.svg",
-                                        alt: ""
-                                      }
-                                    }),
-                                    _vm._v(" Like\n                    ")
-                                  ]
-                                ),
+                                _c("button", { staticClass: "like-btn" }, [
+                                  _c("img", {
+                                    staticClass: "h-4 w-4",
+                                    attrs: {
+                                      src: "images/favorite.svg",
+                                      alt: ""
+                                    }
+                                  })
+                                ]),
                                 _vm._v(" "),
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass:
-                                      "btn-has-icon flex flex-row w-3/12 px-3 justify-between items-center bg-grey rounded br-1"
-                                  },
-                                  [
-                                    _c("img", {
-                                      staticClass: "h-4 w-4",
-                                      attrs: {
-                                        src: "images/favorite.svg",
-                                        alt: ""
-                                      }
-                                    }),
-                                    _vm._v(" Save\n                    ")
-                                  ]
-                                )
+                                _c("button", { staticClass: "like-btn" }, [
+                                  _c("img", {
+                                    staticClass: "h-4 w-4",
+                                    attrs: {
+                                      src: "images/favorite.svg",
+                                      alt: ""
+                                    }
+                                  })
+                                ])
                               ]
                             )
                           ]
@@ -6198,7 +6182,7 @@ var render = function() {
                 ],
                 null,
                 false,
-                3505722674
+                3832887095
               )
             },
             [

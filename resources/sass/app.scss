@@ -99,6 +99,14 @@
   @apply w-full h-16 bg-white flex flex-row items-center justify-between shadow-outlined
 }
 
+.like-btn{
+  @apply h-12 w-12 rounded-full bg-primary-light text-center flex flex-col items-center justify-center
+}
+
+.like-btn:hover{
+  @apply bg-primary
+}
+
 .image-item{
   @apply h-64 rounded border-solid border-white shadow-small-outline p-2;
   border-width: 8px;

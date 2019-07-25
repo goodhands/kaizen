@@ -993,6 +993,10 @@ video {
   background-color: #AEFFAC;
 }
 
+.bg-primary-light{
+  background-color: #aeffac7a;
+}
+
 .bg-grey{
   background-color: lightgrey;
 }
@@ -1373,6 +1377,10 @@ video {
   background-color: #AEFFAC;
 }
 
+.focus-within\:bg-primary-light:focus-within{
+  background-color: #aeffac7a;
+}
+
 .focus-within\:bg-grey:focus-within{
   background-color: lightgrey;
 }
@@ -1751,6 +1759,10 @@ video {
 
 .hover\:bg-primary:hover{
   background-color: #AEFFAC;
+}
+
+.hover\:bg-primary-light:hover{
+  background-color: #aeffac7a;
 }
 
 .hover\:bg-grey:hover{
@@ -2213,6 +2225,10 @@ video {
   border-color: #AEFFAC;
 }
 
+.border-primary-light{
+  border-color: #aeffac7a;
+}
+
 .border-grey{
   border-color: lightgrey;
 }
@@ -2593,6 +2609,10 @@ video {
   border-color: #AEFFAC;
 }
 
+.hover\:border-primary-light:hover{
+  border-color: #aeffac7a;
+}
+
 .hover\:border-grey:hover{
   border-color: lightgrey;
 }
@@ -2971,6 +2991,10 @@ video {
 
 .focus\:border-primary:focus{
   border-color: #AEFFAC;
+}
+
+.focus\:border-primary-light:focus{
+  border-color: #aeffac7a;
 }
 
 .focus\:border-grey:focus{
@@ -6720,6 +6744,10 @@ video {
   color: #AEFFAC;
 }
 
+.text-primary-light{
+  color: #aeffac7a;
+}
+
 .text-grey{
   color: lightgrey;
 }
@@ -7098,6 +7126,10 @@ video {
 
 .hover\:text-primary:hover{
   color: #AEFFAC;
+}
+
+.hover\:text-primary-light:hover{
+  color: #aeffac7a;
 }
 
 .hover\:text-grey:hover{
@@ -7760,6 +7792,22 @@ video {
   box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.11);
 }
 
+.like-btn {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 9999px;
+  background-color: #aeffac7a;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.like-btn:hover {
+  background-color: #AEFFAC;
+}
+
 .image-item {
   height: 16rem;
   border-radius: 0.25rem;
@@ -8335,6 +8383,10 @@ video {
     border-color: #AEFFAC;
   }
 
+  .sm\:border-primary-light{
+    border-color: #aeffac7a;
+  }
+
   .sm\:border-grey{
     border-color: lightgrey;
   }
@@ -8715,6 +8767,10 @@ video {
     border-color: #AEFFAC;
   }
 
+  .sm\:hover\:border-primary-light:hover{
+    border-color: #aeffac7a;
+  }
+
   .sm\:hover\:border-grey:hover{
     border-color: lightgrey;
   }
@@ -9093,6 +9149,10 @@ video {
 
   .sm\:focus\:border-primary:focus{
     border-color: #AEFFAC;
+  }
+
+  .sm\:focus\:border-primary-light:focus{
+    border-color: #aeffac7a;
   }
 
   .sm\:focus\:border-grey:focus{
@@ -13411,6 +13471,10 @@ video {
     border-color: #AEFFAC;
   }
 
+  .md\:border-primary-light{
+    border-color: #aeffac7a;
+  }
+
   .md\:border-grey{
     border-color: lightgrey;
   }
@@ -13791,6 +13855,10 @@ video {
     border-color: #AEFFAC;
   }
 
+  .md\:hover\:border-primary-light:hover{
+    border-color: #aeffac7a;
+  }
+
   .md\:hover\:border-grey:hover{
     border-color: lightgrey;
   }
@@ -14169,6 +14237,10 @@ video {
 
   .md\:focus\:border-primary:focus{
     border-color: #AEFFAC;
+  }
+
+  .md\:focus\:border-primary-light:focus{
+    border-color: #aeffac7a;
   }
 
   .md\:focus\:border-grey:focus{
@@ -18487,6 +18559,10 @@ video {
     border-color: #AEFFAC;
   }
 
+  .lg\:border-primary-light{
+    border-color: #aeffac7a;
+  }
+
   .lg\:border-grey{
     border-color: lightgrey;
   }
@@ -18867,6 +18943,10 @@ video {
     border-color: #AEFFAC;
   }
 
+  .lg\:hover\:border-primary-light:hover{
+    border-color: #aeffac7a;
+  }
+
   .lg\:hover\:border-grey:hover{
     border-color: lightgrey;
   }
@@ -19245,6 +19325,10 @@ video {
 
   .lg\:focus\:border-primary:focus{
     border-color: #AEFFAC;
+  }
+
+  .lg\:focus\:border-primary-light:focus{
+    border-color: #aeffac7a;
   }
 
   .lg\:focus\:border-grey:focus{
@@ -23563,6 +23647,10 @@ video {
     border-color: #AEFFAC;
   }
 
+  .xl\:border-primary-light{
+    border-color: #aeffac7a;
+  }
+
   .xl\:border-grey{
     border-color: lightgrey;
   }
@@ -23943,6 +24031,10 @@ video {
     border-color: #AEFFAC;
   }
 
+  .xl\:hover\:border-primary-light:hover{
+    border-color: #aeffac7a;
+  }
+
   .xl\:hover\:border-grey:hover{
     border-color: lightgrey;
   }
@@ -24321,6 +24413,10 @@ video {
 
   .xl\:focus\:border-primary:focus{
     border-color: #AEFFAC;
+  }
+
+  .xl\:focus\:border-primary-light:focus{
+    border-color: #aeffac7a;
   }
 
   .xl\:focus\:border-grey:focus{
