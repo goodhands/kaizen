@@ -47,6 +47,16 @@ Route::get('/auth/signup', function () {
     return view('auth/signup');
 });
 
-Route::get('/samuel', function () {
-    return view('user/index');
+
+Route::group(['prefix' => '{username}'], function () {
+    Route::get('/', 'UserController@profile')->name('user.view');    
+    Route::get('/following', 'UserController@following')->name('user.following');    
+    Route::get('/followers', 'UserController@followers')->name('user.followers');    
+    Route::get('/photos', 'UserController@photos')->name('user.photos');    
 });
+
+// Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
+
+// Route::get('/menu', 'UserController@menu');

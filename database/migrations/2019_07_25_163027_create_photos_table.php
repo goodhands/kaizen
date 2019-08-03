@@ -33,7 +33,10 @@ class CreatePhotosTable extends Migration
              */
             $table->boolean('was_drafted')->default(0); //was this item saved as draft before it was uploaded?
             $table->boolean('is_project')->default(0); //was this item uploaded as part of a project?
-            $table->integer('project_id')->nullable();
+            /**
+             * Morph:=> for the purpose of adding a project or a single photo
+             */
+            $table->morphs('experience'); //creates experence_id and experience_type :+> id means {`project_id` in the project table} or {`commons_id` in the commons table}
             $table->timestamps();
         });
         

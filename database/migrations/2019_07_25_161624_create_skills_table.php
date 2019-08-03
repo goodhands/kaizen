@@ -29,9 +29,8 @@ class CreateSkillsTable extends Migration
          * Pivot table
          */
         Schema::create('skill_user',  function (Blueprint $table) {
-            $table->primary(['user_id', 'skill_id']);
-            $table->integer('skill_id')->unsigned();
-            $table->integer('user_id')->unsigned();
+            $table->unsignedBigInteger('skill_id');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
 
             $table->foreign('user_id')
@@ -43,7 +42,8 @@ class CreateSkillsTable extends Migration
                 ->references('id')
                 ->on('skills')
                 ->onDelete('cascade');
-                
+            
+            $table->primary(['user_id', 'skill_id']);
         });
     }
 

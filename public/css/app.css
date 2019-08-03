@@ -7668,7 +7668,7 @@ video {
   flex-direction: column;
   flex-wrap: wrap;
   min-height: 350px;
-  max-height: 70vh;
+  max-height: 90vh;
 }
 
 .skill-item {
@@ -7817,6 +7817,7 @@ video {
   padding: 0.5rem;
   border-width: 8px;
   margin-bottom: 20px;
+  width: 30%;
 }
 
 .p-primary {

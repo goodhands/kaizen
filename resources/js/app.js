@@ -7,8 +7,10 @@
 window.Vue = require('vue');
 
 import Vuex from 'vuex'
+import Axios from 'axios';
 
 Vue.use(Vuex)
+Vue.use(Axios)
 
 const store = new Vuex.Store({
     state: {

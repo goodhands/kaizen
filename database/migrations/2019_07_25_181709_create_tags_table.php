@@ -25,8 +25,8 @@ class CreateTagsTable extends Migration
          */
         Schema::create('photo_tag', function (Blueprint $table) {
             $table->primary(['tag_id', 'photo_id']);
-            $table->integer('tag_id');
-            $table->integer('photo_id');
+            $table->unsignedBigInteger('tag_id');
+            $table->unsignedBigInteger('photo_id');
             $table->timestamps();
 
             //onDelete: of either records, delete the corresponding record on the pivot table
