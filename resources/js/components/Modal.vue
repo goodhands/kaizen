@@ -10,7 +10,7 @@
 </template>
 
 <script>
-/**
+/*
  * This component provides a close method to close the modal Out-of-the-box
  */
 export default {
