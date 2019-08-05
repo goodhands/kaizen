@@ -10,8 +10,9 @@
 </template>
 
 <script>
-/*
+/**
  * This component provides a close method to close the modal Out-of-the-box
+ * I made this change on the testing branch
  */
 export default {
     props:{
