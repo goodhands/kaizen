@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLikablesTable extends Migration
+class CreateLikeablesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -18,7 +18,7 @@ class CreateLikablesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
 
-            $table->primary(['photo_id', 'user_id']);
+            $table->primary(['likable_id', 'user_id']);
         });
     }
 

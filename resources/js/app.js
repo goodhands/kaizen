@@ -19,7 +19,9 @@ const store = new Vuex.Store({
         //we need to allow users to switch from sign-up to sign-in without loading
         showSignIn: false,
         showSignUp: true,
-        userLoggedIn: true
+        userLoggedIn: true,
+        username: "Olaegbe Samuel",
+        shotShowedInModal: "http://127.0.0.1:8000/schowalter.lawrence"
     },
 
     mutations:{
@@ -92,6 +94,20 @@ Vue.directive('overlay-bg', {
 const app = new Vue({
     el: '#app',
     store,
+    data() {
+        return {
+            user: {
+                name: "Olaegbe Samuel",
+                photos: "http://127.0.0.1:8000/schowalter.lawrence/photos"
+            }
+        }
+    },
+
+    created() {
+        /**
+         * Once Vue has been instantiated, we want to get the data of the logged in
+         */
+    },
     methods: {
         signUpModal(){
             this.$store.commit('showSignUpModal')

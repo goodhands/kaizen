@@ -43,7 +43,7 @@ class User extends Authenticatable
      * @return 1 or 0
      */
     public function is_pro(){
-        return (Auth::user()->is_pro == 1) ? true : false;
+        return $this->is_pro == 1 ? true : false;
     }
 
     /**
@@ -51,7 +51,7 @@ class User extends Authenticatable
      * @return 1 or 0
      */
     public function is_team(){
-        return (Auth::user()->account_type == "Team") ? true : false;
+        return $this->account_type == "Team" ? true : false;
     }
 
     /**
@@ -59,7 +59,7 @@ class User extends Authenticatable
      */
     public function account_type(){
         Auth::loginUsingId(2);
-        return Auth::user()->account_type;
+        return $this->account_type;
     }
 
     public function getRouteKeyName(){
@@ -67,7 +67,7 @@ class User extends Authenticatable
     }
 
     public function fullname(){
-        return Auth::user()->firstname ." ". Auth::user()->lastname;
+        return $this->firstname ." ". $this->lastname;
     }
 
     public function defaultSkillPath(){
@@ -86,7 +86,7 @@ class User extends Authenticatable
     }
 
     public function skills(){
-        return $this->belongsToMany(Skills::class, 'skill_user', 'user_id', 'skill_id');
+        return $this->belongsToMany(Skills::class, 'skill_user', 'user_id', 'skill_id')->withTimestamps();
     }
 
     public function socials(){

@@ -107,11 +107,23 @@
   @apply bg-primary
 }
 
+.btn{
+  @apply bg-primary-light
+}
+
+.btn:hover{
+  @apply bg-primary
+}
+
 .image-item{
   @apply h-64 rounded border-solid border-white shadow-small-outline p-2;
   border-width: 8px;
   margin-bottom: 20px;
   width: 30%;
+}
+
+.image-popup{
+  z-index: 999;
 }
 
 .p-primary{

@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Photo extends Model
 {
+
+    public function getRouteKeyName(){
+        return 'slug';
+    }
+
     /**
      * the experience convention means 'how you experience the photo'
      */
@@ -18,10 +23,13 @@ class Photo extends Model
     /**
      * fetch the owner of the photo
      */
-    public function owner(){
+    public function user(){
         return $this->belongsTo(User::class);
     }
 
+    public function assign_photo($user){
+        return $this->user()->attach($user);
+    }
     /**
      * Like a photo
      */

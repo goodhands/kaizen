@@ -7808,6 +7808,14 @@ video {
   background-color: #AEFFAC;
 }
 
+.btn {
+  background-color: #aeffac7a;
+}
+
+.btn:hover {
+  background-color: #AEFFAC;
+}
+
 .image-item {
   height: 16rem;
   border-radius: 0.25rem;
@@ -7818,6 +7826,10 @@ video {
   border-width: 8px;
   margin-bottom: 20px;
   width: 30%;
+}
+
+.image-popup {
+  z-index: 999;
 }
 
 .p-primary {

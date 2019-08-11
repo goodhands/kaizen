@@ -12,7 +12,7 @@
 */
 
 /**
- * Every route is first a folder because they can have sub pages
+ * Every route is first a folder (view) because they can have sub pages
  */
 
 Route::get('/', function () {
@@ -23,8 +23,17 @@ Route::get('/explore', function () {
     return view('index');
 });
 
-Route::get('/photo/{id}', function () {
-    return view('photo/index');
+Route::get('/photo/{photo}', 'PhotoController@show');
+
+Route::group(['prefix' => 'photo'], function () {
+    /**
+     * Maybe there is a way i can add a middleware that will
+     * make sure that if a {?json} is added to the url, we'll return json by default
+     */
+    // Route::get('/{id}', 'PhotoController@show');
+        // return view('photo/index'));
+    
+
 });
 
 Route::get('/upload', function () {
