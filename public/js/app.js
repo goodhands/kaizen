@@ -2235,6 +2235,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _ImagePopup_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ImagePopup.vue */ "./resources/js/components/ImagePopup.vue");
 //
 //
 //
@@ -2269,27 +2270,47 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
- // import mome
+//
+
+ // import moment
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    ImagePopUp: _ImagePopup_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   data: function data() {
     return {
-      image: "images/photo-1493414307931-f6f5861f5029.jpg",
-      data: []
+      data: [],
+      selectedShot: ""
     };
+  },
+  props: {
+    url: String,
+    //if data profile is true, we will fetch the data `url` from the browser url. else, we will make use of the url prop
+    dataProfile: Boolean
+  },
+  computed: {
+    imageData: function imageData() {
+      return this.dataProfile === true ? document.location.href + '/photos' : this.url;
+    },
+    selectedShotUrl: function selectedShotUrl() {
+      return document.location.origin + '/photo/' + this.selectedShot;
+    }
   },
   mounted: function mounted() {
     var _this = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('http://127.0.0.1:8000/schowalter.lawrence/photos').then(function (response) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(this.imageData).then(function (response) {
       return _this.data = response.data;
     });
   },
   methods: {
-    shotModal: function shotModal(event) {
+    shotModal: function shotModal(item) {
       event.preventDefault();
       this.$store.commit('showImageModal');
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = "hidden"; //stores the unique identifier for each image
+
+      this.selectedShot = item;
     },
     favourite: function favourite(event) {
       event.preventDefault();
@@ -2749,7 +2770,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-/**
+/*
  * This component provides a close method to close the modal Out-of-the-box
  */
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -7265,74 +7286,80 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    _vm._l(this.data, function(item, index) {
-      return _c("div", { key: index, staticClass: "image-item" }, [
-        _c(
-          "a",
-          {
-            attrs: { href: "/photo/" + item.slug },
-            on: { click: _vm.shotModal }
-          },
-          [
-            _c("div", {
-              staticClass: "item-display rounded",
-              style: {
-                background:
-                  "linear-gradient(40deg, rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(" +
-                  item.asset_url +
-                  ")",
-                backgroundPosition: "center",
-                backgroundSize: "cover",
-                backgroundRepeat: "no-repeat"
-              }
-            })
-          ]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "item-meta" }, [
-          _c("div", { staticClass: "meta-description my-1" }, [
-            _c("a", { attrs: { href: "#" } }, [
+    [
+      _vm._l(this.data, function(item, index) {
+        return _c("div", { key: index, staticClass: "image-item" }, [
+          _c(
+            "a",
+            {
+              attrs: { href: "/photo/" + item.slug },
+              on: { click: _vm.shotModal }
+            },
+            [
+              _c("div", {
+                staticClass: "item-display rounded",
+                style: {
+                  background:
+                    "linear-gradient(40deg, rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(" +
+                    item.asset_url +
+                    ")",
+                  backgroundPosition: "center",
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat"
+                }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "item-meta" }, [
+            _c("div", { staticClass: "meta-description my-1" }, [
+              _c("a", { attrs: { href: "#" } }, [
+                _c(
+                  "h2",
+                  {
+                    staticClass:
+                      "leading-snug font-medium flex flex-row justify-between items-center"
+                  },
+                  [
+                    _c("img", {
+                      staticClass: "h-5 rounded-full",
+                      attrs: { src: "images/user.jpg" }
+                    }),
+                    _vm._v(
+                      "\r\n                          " +
+                        _vm._s(item.title) +
+                        "\r\n                    "
+                    )
+                  ]
+                )
+              ]),
+              _vm._v(" "),
               _c(
-                "h2",
+                "p",
                 {
-                  staticClass:
-                    "leading-snug font-medium flex flex-row justify-between items-center"
+                  staticClass: "text-light-dark leading-tight",
+                  attrs: { title: "2019-09-20 09:32am" }
                 },
-                [
-                  _c("img", {
-                    staticClass: "h-5 rounded-full",
-                    attrs: { src: "images/user.jpg" }
-                  }),
-                  _vm._v(
-                    "\r\n                          " +
-                      _vm._s(item.title) +
-                      "\r\n                    "
-                  )
-                ]
+                [_vm._v(_vm._s(item.created_at))]
               )
             ]),
             _vm._v(" "),
-            _c(
-              "p",
-              {
-                staticClass: "text-light-dark leading-tight",
-                attrs: { title: "2019-09-20 09:32am" }
-              },
-              [_vm._v(_vm._s(item.created_at))]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "meta-stats" }, [
-            _c("a", { attrs: { href: "#" }, on: { click: _vm.favourite } }, [
-              _vm._m(0, true)
-            ]),
-            _vm._v(" "),
-            _vm._m(1, true)
+            _c("div", { staticClass: "meta-stats" }, [
+              _c("a", { attrs: { href: "#" }, on: { click: _vm.favourite } }, [
+                _vm._m(0, true)
+              ]),
+              _vm._v(" "),
+              _vm._m(1, true)
+            ])
           ])
         ])
-      ])
-    }),
-    0
+      }),
+      _vm._v(" "),
+      this.$store.state.showImageModal
+        ? _c("image-popup", { attrs: { modal: true, "data-profile": true } })
+        : _vm._e()
+    ],
+    2
   )
 }
 var staticRenderFns = [

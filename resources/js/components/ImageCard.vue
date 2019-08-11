@@ -29,29 +29,53 @@
             </div>
         </div>
     </div>
+    <image-popup v-if="this.$store.state.showImageModal" :modal="true"></image-popup>
 </div>
 </template>
 
 <script>
 import Axios from 'axios'
-// import mome
+import ImagePopUp from './ImagePopup.vue'
+// import moment
 export default {
+    components:{
+        ImagePopUp
+    },
+
     data() {
         return {
-            image: "images/photo-1493414307931-f6f5861f5029.jpg",
             data: [],
+            selectedShot: "",
+        }
+    },
+
+    props: {
+        url: String,
+        //if data profile is true, we will fetch the data `url` from the browser url. else, we will make use of the url prop
+        dataProfile: Boolean
+    },
+
+    computed:{
+        imageData(){
+            return this.dataProfile === true ? document.location.href+'/photos' : this.url;
+        },
+
+        selectedShotUrl(){
+            return document.location.origin + '/photo/' + this.selectedShot
         }
     },
 
     mounted() {
-        Axios.get('http://127.0.0.1:8000/schowalter.lawrence/photos').then(response => (this.data = response.data));
+        Axios.get(this.imageData).then(response => (this.data = response.data));
     },
 
     methods: {
-        shotModal(event){
+        shotModal(item){
             event.preventDefault();         
             this.$store.commit('showImageModal')
             document.body.style.overflow = "hidden";
+            //stores the unique identifier for each image
+            this.selectedShot = item;
         },
 
         favourite(event){
