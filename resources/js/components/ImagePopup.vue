@@ -4,15 +4,15 @@
             <template v-slot:head>
                 <div class="header p-5 flex flex-row justify-between">
                     <div class="w-8/12 flex flex-row items-center">
-                        <img src="images/user.jpg" alt="" class="rounded-full h-12 w-12">
+                        <img :src="this.item.user.avatar" alt="" class="rounded-full h-12 w-12">
                         <div class="flex flex-col mx-2">
-                            <a href="#">
+                            <a :href="this.item.user.username">
                             <h2 class="leading-normal font-medium text-1xl">
-                                {{ item.user.firstname }} {{ item.user.lastname }} 
+                                {{ this.item.user.firstname }} {{ this.item.user.lastname }}
                             </h2>
                             </a>
                             <p class="leading-none">
-                                {{ item.user.profession }}
+                                {{ this.item.user.profession }}
                             </p>
                         </div>
                     </div>
@@ -28,31 +28,29 @@
             </template>
             <template v-slot:main>
                 <div class="image-display-main">
-                    <img :src="item.asset_url" alt="">
+                    <img :src="this.item.asset_url" :alt="this.item.description | shorten">
                 </div>
             </template>
             <template v-slot:footer>
                 <div class="image-display-footer p-5">
                     <div class="sm-area flex flex-row justify-between">
                         <div class="sm-btn flex flex-row justify-between">
+                            <a href="#" class="w-4/12 px-4 btn-primary py-1 rounded-1 border-grey-400 bg-grey">Pinterest</a>
+                        </div>
+                        <div class="sm-follow flex">
+                            <a href="#" class="btn-primary font-medium">Follow @xshots</a>
                         </div>
                     </div>
                     <span class="dash"></span>
                     <div class="description-area">
                         <p class="leading-snug text-sm">
-                            {{ item.asset_description }}
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate qui dolorem optio expedita, voluptatum dolores ut, veniam possimus sunt praesentium voluptates esse nemo magnam. Nisi quos a commodi nulla ipsum?
                         </p>
                     </div>
                     <span class="dash block h-dash w-full bg-dark-grey my-2"></span>
                     <div class="meta-area my-3 flex flex-row justify-between">
                         <div class="meta-item w-4/12">
                             <h1 class="title text-sm text-subtitle">Labels/Tags</h1>
-                            <div class="meta-item-child flex flex-row flex-wrap">
-                                <a href="#" class="leading-none" v-for="items in 4" :key="items">DSLR</a>
-                            </div>
-                        </div>
-                        <div class="meta-item w-4/12">
-                            <h1 class="title text-sm text-subtitle">Camera settings</h1>
                             <div class="meta-item-child flex flex-row flex-wrap">
                                 <a href="#" class="leading-none" v-for="items in 4" :key="items">DSLR</a>
                             </div>
@@ -117,10 +115,6 @@
                         </div>
 
                         <div class="meta-item flex flex-col w-4/12 items-center">
-                            <div class="sm-follow flex w-full">
-                                <a href="#" @click="follow_user(item.user.username)" class="btn font-medium">Follow @xshots</a>
-                            </div>
-                            <a href="#" v-for="item in 3" :key="item" class="btn w-4/12 px-4 btn-primary py-1 rounded-1 border-grey-400 bg-grey">Pinterest</a>
                             <div class="flex flex-row items-center w-full">
                                 <div class="w-1/12">
                                     <img src="images/favorite.svg" class="h-3 w-3" alt="">
@@ -157,6 +151,7 @@ export default {
             item: []
         }
     },
+
     methods: {
         closeModal (){
             this.$store.commit('closeImageModal')
@@ -165,6 +160,14 @@ export default {
         },
     },
     
+    filters:{
+        shorten(text){
+            //return half the size of the normal text
+            var size = text.length;
+            var shortenBy = size / 2;
+        }
+    },
+
     props:{
         data: String,
         modal: Boolean

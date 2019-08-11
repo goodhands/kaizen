@@ -1,7 +1,6 @@
 <template>
     <div class="bg-white-ter w-full p-primary flex flex-row justify-between flex-wrap">
-        <!-- <image-card :url="home.photos" v-for="item in 24" :key="item" class="xl:w-image-item sm:w-image-item-small"></image-card> -->
-        <image-popup v-if="this.$store.state.showImageModal" :modal="true" :data="popimageData"></image-popup>
+        <image-card :url="this.home"></image-card>
         <end-of-scroll v-if="!userLoggedIn"></end-of-scroll>
     </div>
 </template>
@@ -16,7 +15,9 @@ export default {
                 age: '23'
             },
 
-            userLoggedIn: false
+            userLoggedIn: false,
+
+            home: "http://127.0.0.1:8000/api/photo/75y34b/home"
         }
     },
 }

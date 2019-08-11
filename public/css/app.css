@@ -7825,7 +7825,8 @@ video {
   padding: 0.5rem;
   border-width: 8px;
   margin-bottom: 20px;
-  width: 30%;
+  width: auto;
+  min-width: 23%;
 }
 
 .image-popup {

@@ -2,7 +2,9 @@
 
 /* @var $factory \Illuminate\Database\Eloquent\Factory */
 
+use App\User;
 use App\Photo;
+use Illuminate\Support\Arr;
 use Faker\Generator as Faker;
 
 $factory->define(Photo::class, function (Faker $faker) {
@@ -10,7 +12,7 @@ $factory->define(Photo::class, function (Faker $faker) {
         'title' => $faker->streetName,
         'description' => $faker->text(),
         'user_id' => array_random(
-            User::all()->id
+            Arr::wrap(factory(User::class)->create()->id)
         ),
         'slug' => 'photo-slug',
         'asset_url' => array_random([

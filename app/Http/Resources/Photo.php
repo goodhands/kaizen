@@ -23,6 +23,7 @@ class Photo extends JsonResource
                 'lastname' => $this->user->lastname,
                 'username' => $this->user->username,
                 'profession' => $this->user->profession,
+                'avatar' => $this->user->avatar
                 //I want the microservice to fetch the other infomation such as comments, tags, colors, etc.
             ],
             'tags' => [

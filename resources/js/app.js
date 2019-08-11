@@ -63,7 +63,7 @@ const store = new Vuex.Store({
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('home-hero', require('./components/HomeHero.vue').default);
-Vue.component('filter-section', require('./components/Filter.vue').default);
+Vue.component('filter-section', require('./components/FilterComponent.vue').default);
 Vue.component('home-main-content', require('./components/HomeMainContent.vue').default);
 Vue.component('image-card', require('./components/ImageCard.vue').default);
 Vue.component('image-popup', require('./components/ImagePopup.vue').default);

@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-row flex-wrap">
+    <div class="flex flex-row flex-wrap justify-between w-full">
         <div class="image-item" v-for="(item, index) in this.data" :key="index">
             <a :href="'/photo/'+item.slug" @click="shotModal(item.slug)">
                 <div class="item-display rounded" :style="{ 'background': 'linear-gradient(40deg, rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('+item.asset_url+')', 'backgroundPosition':'center','backgroundSize':'cover','backgroundRepeat':'no-repeat' }">

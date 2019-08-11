@@ -67,12 +67,12 @@
 
 <script>
 import ImageCard from './ImageCard.vue'
-import Filter from './Filter.vue'
+import FilterComponent from './FilterComponent.vue'
 
 export default {
     components:{
         ImageCard,
-        Filter
+        FilterComponent
     }
 }
 </script>

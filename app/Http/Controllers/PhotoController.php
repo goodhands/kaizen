@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Photo;
 use Illuminate\Http\Request;
 use App\Http\Resources\Photo as PhotoResource;
+use App\Token;
+use Illuminate\Support\Arr;
 
 class PhotoController extends Controller
 {
@@ -88,5 +90,24 @@ class PhotoController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Resolve an API request with the use of the Photo Resources class
+     */
+    public function resolveApi(Token $token, $page){
+        if($page == "home"){
+            /** TODO: refactor this shit storm */
+            // if($token->valid()){
+                //fetch the appropriate images for home, transform them and return them as a resource
+                return Photo::all();
+                
+                // return new PhotoResource($photo);
+            // }
+        }else{
+            return "Not page";
+        }
+
+        // return $token;
     }
 }

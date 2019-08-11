@@ -23,6 +23,10 @@ Route::get('/explore', function () {
     return view('index');
 });
 
+Route::group(['prefix' => 'api'], function () {
+    Route::get('/photo/{token}/{page}', 'PhotoController@resolveApi');
+});
+
 Route::get('/photo/{photo}', 'PhotoController@show');
 
 Route::group(['prefix' => 'photo'], function () {
