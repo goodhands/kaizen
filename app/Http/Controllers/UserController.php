@@ -43,6 +43,9 @@ class UserController extends Controller
     }
 
     public function photos(User $username){
-        return $username->photos;
+        $username->username;
+        $username->photos;
+        return $username; 
+        // return $username->photos;
     }
 }

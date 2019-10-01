@@ -18,6 +18,7 @@ class CreatePhotosTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('slug');
+            $table->integer('category_id');
             $table->integer('user_id');
             /**
              * This area may be stored in cache so we don't have to compute every time.

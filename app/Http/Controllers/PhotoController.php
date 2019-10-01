@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Photo;
-use Illuminate\Http\Request;
-use App\Http\Resources\Photo as PhotoResource;
 use App\Token;
 use Illuminate\Support\Arr;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Resources\Photo as PhotoResource;
 
 class PhotoController extends Controller
 {
@@ -59,6 +61,26 @@ class PhotoController extends Controller
     }
 
     /**
+     * Helper class to return the comments of this resource.
+     * I don't understand this shit but it works!!!
+     * 
+     * TODO:
+     * 
+     * Okay, I think I figured it out! Calling the commentator method before returning the comments 
+     * object adds the commentator to the object out-of-the-box! It's magic!
+     */
+    public function comments(Photo $photo){
+        $comments = $photo->comments;
+
+        //Group-in the user info to the comment array
+        foreach($comments as $comment){
+            $comment->commentator;
+        }
+
+        return $photo->comments;
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -95,19 +117,22 @@ class PhotoController extends Controller
     /**
      * Resolve an API request with the use of the Photo Resources class
      */
-    public function resolveApi(Token $token, $page){
-        if($page == "home"){
-            /** TODO: refactor this shit storm */
-            // if($token->valid()){
-                //fetch the appropriate images for home, transform them and return them as a resource
-                return Photo::all();
-                
-                // return new PhotoResource($photo);
-            // }
-        }else{
-            return "Not page";
+    public function resolveApi(){
+        return Photo::with('user')->get();
+    }
+
+    /**
+     * Similar images may be filtered at the endpoint. We could filter based on the user or the color, etc
+     * @param string terms: tells me the selection criteria only
+     * @param string termID: tells me the particular selection id (userid, categoryid, etc)
+     * @param string photo: tells me the photo to exclude
+     */
+    public function similar(Request $request){
+        if($request->query('terms') == "user"){
+            $photo = Photo::whereNotIn('slug', [$request->query('except')])->whereUserId($request->query('termID'))->with('user')->get();
+
+            return$photo;
         }
 
-        // return $token;
     }
 }

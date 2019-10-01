@@ -24,20 +24,19 @@ Route::get('/explore', function () {
 });
 
 Route::group(['prefix' => 'api'], function () {
-    Route::get('/photo/{token}/{page}', 'PhotoController@resolveApi');
+    Route::get('/photo/', 'PhotoController@resolveApi');
+    Route::get('/similar', 'PhotoController@similar');    
 });
 
-Route::get('/photo/{photo}', 'PhotoController@show');
 
 Route::group(['prefix' => 'photo'], function () {
     /**
      * Maybe there is a way i can add a middleware that will
      * make sure that if a {?json} is added to the url, we'll return json by default
      */
-    // Route::get('/{id}', 'PhotoController@show');
-        // return view('photo/index'));
-    
-
+    Route::get('/{photo}', 'PhotoController@show');
+    Route::get('/{photo}/comments', 'PhotoController@comments');
+    Route::post('/{photo}/comments', 'CommentController@store');
 });
 
 Route::get('/upload', function () {
@@ -66,7 +65,9 @@ Route::group(['prefix' => '{username}'], function () {
     Route::get('/following', 'UserController@following')->name('user.following');    
     Route::get('/followers', 'UserController@followers')->name('user.followers');    
     Route::get('/photos', 'UserController@photos')->name('user.photos');    
+    // Route::get('/photos?except={photo}', 'UserController@similar')->name('user.similarPhotos');    
 });
+
 
 // Auth::routes();
 
