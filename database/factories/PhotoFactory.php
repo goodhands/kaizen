@@ -2,6 +2,7 @@
 
 /* @var $factory \Illuminate\Database\Eloquent\Factory */
 
+use App\Category;
 use App\User;
 use App\Photo;
 use Illuminate\Support\Arr;
@@ -22,6 +23,11 @@ $factory->define(Photo::class, function (Faker $faker) {
             'http://127.0.0.1:8000/images/joanna-kosinska-129039-unsplash.jpg',
             'http://127.0.0.1:8000/images/photo-1493414307931-f6f5861f5029.jpg'
         ]),
+        'category_id' => array_random(
+            [
+                1,2,3,4,5,6
+            ]
+        ),
         'upload_speed' => '0.4s',
         'experience_type' => 'App\Commons',
         'experience_id' => '1'

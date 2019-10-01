@@ -5,6 +5,7 @@
  */
 
 window.Vue = require('vue');
+Vue.config.debug = true // turn on debugging mode
 
 import Vuex from 'vuex'
 import Axios from 'axios';
@@ -79,12 +80,27 @@ Vue.component('upload-photo', require('./components/UploadPhoto.vue').default);
 Vue.component('discover-content', require('./components/DiscoverContent.vue').default);
 Vue.component('image-uploader', require('./components/ImageUploader.vue').default);
 Vue.component('user-profile', require('./components/UserProfile.vue').default);
+Vue.component('similar-image-card', require('./components/SimilarImageCard.vue').default);
+Vue.component('comments', require('./components/Comments.vue').default);
 
 Vue.directive('overlay-bg', {
     inserted: function(el, binding){
         el.style.backGround = "linear-gradient(45deg, rgba(0,0,0,0.5), rgba(0,0,0,0.4), url(' "+binding.value+" ')";
     }
-})
+});
+
+/**
+ * Import PulseLoader
+ */
+Vue.component('pulse-loader', require('vue-spinner/src/PulseLoader.vue'));
+Vue.component('grid-loader', require('vue-spinner/src/GridLoader.vue'));
+
+
+/***
+ * Feather Icon
+ */
+import { AirplayIcon, AtSignIcon, HeartIcon, SaveIcon } from 'vue-feather-icons'
+// Vue.component('heart-icon', require('vue-feather-icons/icons/HeartIcon'));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

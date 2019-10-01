@@ -1,0 +1,1 @@
+<filter-section :categories="{{$categories}}"></filter-section>

@@ -2,6 +2,6 @@
 
 @section('main_content')    
     <home-hero></home-hero>
-    <filter-section></filter-section>
+    @include('partials.filter')
     <home-main-content></home-main-content>
 @endsection

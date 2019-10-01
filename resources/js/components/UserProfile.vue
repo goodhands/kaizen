@@ -6,7 +6,6 @@
                     'backgroundPosition': 'center',
                 }">
             </div>
-            <!-- <filter-section></filter-section> -->
             <div class="w-full h-6 bg-white relative user-profile-subhead flex flex-row justify-center items-center">
                 <div class="user-avatar-area flex flex-row justify-between items-center">
                     <img src="http://127.0.0.1:8000/images/user.jpg" alt="">
