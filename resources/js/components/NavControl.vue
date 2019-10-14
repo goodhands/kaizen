@@ -6,13 +6,13 @@
             <div class="nav-user-control absolute bg-white" v-if="userHover">
                 <h2 class="text-xl font-primary font-medium leading-snug">Hello Olaegbe,</h2>
                 <span class="dash"></span>
-                <div class="top-level-ctrls font-sm text-primary flex justify-between flex-wrap flex-col items-center">
+                <div class="top-level-ctrls font-sm text-black flex justify-between flex-wrap flex-col items-center">
                     <a href="#">Update profile</a>
                     <a href="#">Change password</a>
                     <a href="#">Sign out</a>
                 </div>
                 <span class="dash"></span>
-                <div class="top-level-ctrls font-sm text-primary flex justify-evenly flex-wrap flex-row">
+                <div class="top-level-ctrls font-sm text-black flex justify-evenly flex-wrap flex-row">
                     <a href="#">Update profile</a>
                     <a href="#">Change password</a>
                     <a href="#">Sign out</a>

@@ -5,10 +5,13 @@
  */
 
 window.Vue = require('vue');
+Vue.config.debug = true // turn on debugging mode
 
 import Vuex from 'vuex'
+import Axios from 'axios';
 
 Vue.use(Vuex)
+Vue.use(Axios)
 
 const store = new Vuex.Store({
     state: {
@@ -17,7 +20,9 @@ const store = new Vuex.Store({
         //we need to allow users to switch from sign-up to sign-in without loading
         showSignIn: false,
         showSignUp: true,
-        userLoggedIn: true
+        userLoggedIn: true,
+        username: "Olaegbe Samuel",
+        shotShowedInModal: "http://127.0.0.1:8000/schowalter.lawrence"
     },
 
     mutations:{
@@ -59,7 +64,7 @@ const store = new Vuex.Store({
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('home-hero', require('./components/HomeHero.vue').default);
-Vue.component('filter-section', require('./components/Filter.vue').default);
+Vue.component('filter-section', require('./components/FilterComponent.vue').default);
 Vue.component('home-main-content', require('./components/HomeMainContent.vue').default);
 Vue.component('image-card', require('./components/ImageCard.vue').default);
 Vue.component('image-popup', require('./components/ImagePopup.vue').default);
@@ -75,12 +80,27 @@ Vue.component('upload-photo', require('./components/UploadPhoto.vue').default);
 Vue.component('discover-content', require('./components/DiscoverContent.vue').default);
 Vue.component('image-uploader', require('./components/ImageUploader.vue').default);
 Vue.component('user-profile', require('./components/UserProfile.vue').default);
+Vue.component('similar-image-card', require('./components/SimilarImageCard.vue').default);
+Vue.component('comments', require('./components/Comments.vue').default);
 
 Vue.directive('overlay-bg', {
     inserted: function(el, binding){
         el.style.backGround = "linear-gradient(45deg, rgba(0,0,0,0.5), rgba(0,0,0,0.4), url(' "+binding.value+" ')";
     }
-})
+});
+
+/**
+ * Import PulseLoader
+ */
+Vue.component('pulse-loader', require('vue-spinner/src/PulseLoader.vue'));
+Vue.component('grid-loader', require('vue-spinner/src/GridLoader.vue'));
+
+
+/***
+ * Feather Icon
+ */
+import { AirplayIcon, AtSignIcon, HeartIcon, SaveIcon } from 'vue-feather-icons'
+// Vue.component('heart-icon', require('vue-feather-icons/icons/HeartIcon'));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -90,6 +110,20 @@ Vue.directive('overlay-bg', {
 const app = new Vue({
     el: '#app',
     store,
+    data() {
+        return {
+            user: {
+                name: "Olaegbe Samuel",
+                photos: "http://127.0.0.1:8000/schowalter.lawrence/photos"
+            }
+        }
+    },
+
+    created() {
+        /**
+         * Once Vue has been instantiated, we want to get the data of the logged in
+         */
+    },
     methods: {
         signUpModal(){
             this.$store.commit('showSignUpModal')

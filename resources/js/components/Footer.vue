@@ -14,5 +14,16 @@
                 <a href="#">Hiring</a>
             </div>
         </div>
+        <in-app-auth :modal="true" v-if="this.$store.state.showSignUpModal"></in-app-auth>        
     </div>
 </template>
+
+<script>
+import InAppAuth from './InAppAuth'
+
+export default {
+    components:{
+        InAppAuth
+    }
+}
+</script>

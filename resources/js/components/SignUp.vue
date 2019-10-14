@@ -11,7 +11,7 @@
                 </div>
             </template>
             <template v-slot:main>
-                <div class="main-col has-form flex flex-col p-normal items-center pb-0">
+                <div class="main-col has-form flex flex-col p-normal items-center pb-0 pt-0">
                     <div class="form-item w-full flex flex-col mb-3">
                         <label for="username" class="font-medium cursor-pointer">Username</label>
                         <input type="text" id="username" class="form-control">
@@ -30,7 +30,10 @@
                         </div>
                         <button class="btn-primary mt-5">Sign up</button>
                         <p class="text-sm text-darker-grey text-center mt-2">
-                            Already have an account? <a href="#" class="text-primary" @click="signInModal">Sign Up</a>
+                            Already have an account? <a href="#" class="text-primary" @click="signInModal">Sign In</a>
+                        </p>
+                        <p class="text-sm text-darker-grey text-center mt-2">
+                            &dash; Esc. to close
                         </p>
                     </div>
                 </div>
@@ -38,7 +41,7 @@
             <template v-slot:footer></template>
         </modal>
         <div v-else>
-            <div class="main-content p-8 m-auto w-5/12 bg-white h-auto rounded">
+            <div class="shadow-small-outline main-content p-8 m-auto w-5/12 bg-white h-auto rounded">
                 <div class="header-col flex flex-col p-normal items-center pb-0">
                     <h2 class="text-2xl font-medium leading-normal">Sign up below</h2>
                     <h5 class="text-1xl text-dark-black leading-normal mb-5">Login below to access over 2 million professional photographers</h5>
@@ -65,7 +68,7 @@
                         </div>
                         <button class="btn-primary mt-5">Sign up</button>
                         <p class="text-sm text-darker-grey text-center mt-2">
-                            Already have an account? <a href="#" class="text-primary" @click="signInModal">Sign Up</a>
+                            Already have an account? <a href="#" class="text-primary" @click="signInModal">Sign In</a>
                         </p>
                     </div>
                 </div>

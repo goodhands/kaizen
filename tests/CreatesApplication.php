@@ -2,6 +2,7 @@
 
 namespace Tests;
 
+use Dotenv\Dotenv as Dotenv;
 use Illuminate\Contracts\Console\Kernel;
 
 trait CreatesApplication
@@ -14,6 +15,10 @@ trait CreatesApplication
     public function createApplication()
     {
         $app = require __DIR__.'/../bootstrap/app.php';
+
+        // if (file_exists(dirname(__DIR__) . '/.env.test')) {
+        //     (new Dotenv(dirname(__DIR__), '.env.test'))->load();
+        // }            
 
         $app->make(Kernel::class)->bootstrap();
 
