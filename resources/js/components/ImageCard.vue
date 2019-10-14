@@ -1,5 +1,8 @@
 <template>
     <div class="flex flex-row flex-wrap justify-between w-full">
+        <loading v-if="this.data.length == 0">
+            <h2>Please wait, our servers are fetching your photos...</h2>
+        </loading>
         <div class="image-item" v-for="(item, index) in this.data" :key="index" @mouseenter="showMeta(item.id)" @mouseleave="hideMeta(item.id)">
             <a :href="'/photo/'+item.slug" @click="shotModal(item.slug)">
                 <div class="item-display" :style="{ 'background': 'linear-gradient(40deg, rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('+item.asset_url+')', 'backgroundPosition':'center','backgroundSize':'cover','backgroundRepeat':'no-repeat' }">
@@ -36,10 +39,12 @@ import Axios from 'axios'
 import ImagePopUp from './ImagePopup.vue'
 import HeartIcon from 'vue-feather-icons/icons/HeartIcon'
 import moment from 'moment'
+import Loading from './utils/Loading';
 export default {
     components:{
+        Loading,
         ImagePopUp,
-        HeartIcon
+        HeartIcon,
     },
 
     data() {
@@ -76,7 +81,7 @@ export default {
         shotModal(item){
             event.preventDefault();         
             this.$store.commit('showImageModal')
-            document.body.style.overflow = "hidden";
+            // document.body.style.overflow = "hidden";
             //stores the unique identifier for each image
             this.selectedShot = item;
         },

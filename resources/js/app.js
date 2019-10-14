@@ -62,26 +62,7 @@ const store = new Vuex.Store({
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('home-hero', require('./components/HomeHero.vue').default);
-Vue.component('filter-section', require('./components/FilterComponent.vue').default);
-Vue.component('home-main-content', require('./components/HomeMainContent.vue').default);
-Vue.component('image-card', require('./components/ImageCard.vue').default);
-Vue.component('image-popup', require('./components/ImagePopup.vue').default);
-Vue.component('modal', require('./components/Modal.vue').default);
-Vue.component('end-of-scroll', require('./components/EndOfScroll.vue').default);
-Vue.component('in-app-auth', require('./components/InAppAuth.vue').default);
-Vue.component('sign-in', require('./components/SignIn.vue').default);
-Vue.component('sign-up', require('./components/SignUp.vue').default);
-Vue.component('app-footer', require('./components/Footer.vue').default);
-Vue.component('photo-single', require('./components/PhotoSingle.vue').default);
-Vue.component('nav-control', require('./components/NavControl.vue').default);
-Vue.component('upload-photo', require('./components/UploadPhoto.vue').default);
-Vue.component('discover-content', require('./components/DiscoverContent.vue').default);
-Vue.component('image-uploader', require('./components/ImageUploader.vue').default);
-Vue.component('user-profile', require('./components/UserProfile.vue').default);
-Vue.component('similar-image-card', require('./components/SimilarImageCard.vue').default);
-Vue.component('comments', require('./components/Comments.vue').default);
+require('./require/components');
 
 Vue.directive('overlay-bg', {
     inserted: function(el, binding){
@@ -107,15 +88,15 @@ import { AirplayIcon, AtSignIcon, HeartIcon, SaveIcon } from 'vue-feather-icons'
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+import axios from 'axios';
+
 const app = new Vue({
     el: '#app',
+    mixins: [ require('./mixins/user') ],
     store,
     data() {
         return {
-            user: {
-                name: "Olaegbe Samuel",
-                photos: "http://127.0.0.1:8000/schowalter.lawrence/photos"
-            }
+            user: [],
         }
     },
 

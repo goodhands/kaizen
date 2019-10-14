@@ -603,9 +603,9 @@ video {
   width: 100%;
 }
 
-@media (min-width: 640px){
+@media (min-width: 360px){
   .container{
-    max-width: 640px;
+    max-width: 360px;
   }
 }
 
@@ -8068,7 +8068,100 @@ textarea:hover {
   animation: bounceInUp 0.5s reverse;
 }
 
-@media (min-width: 640px){
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
+.user-card {
+  background-color: #fff;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.09);
+  height: 300px;
+  margin-bottom: 20px;
+  width: 95%;
+  border-radius: 4px;
+  padding: 10px 9px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-card .card-header {
+  height: 40%;
+  width: 100%;
+  position: absolute;
+  background-color: #eee;
+  top: 0;
+  z-index: 0;
+  background-image: url(http://127.0.0.1:8000/images/joanna-kosinska-129039-unsplash.jpg);
+}
+
+.user-card a.follow-user-btn {
+  background-color: #aeffac;
+  border-radius: 5px;
+  color: #000;
+  padding: 0px 10px;
+  position: absolute;
+  top: 17px;
+  right: 19px;
+}
+
+.user-card .user-image {
+  height: 50%;
+  display: flex;
+  width: 43%;
+  justify-content: center;
+  border-radius: 100%;
+  background-size: cover;
+  background-position: unset;
+  z-index: 9;
+}
+
+.user-card .user-works {
+  height: 80px;
+  background: #000000bd;
+  width: 100%;
+  display: flex;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.user-card .user-works .photo-card-preview-sm {
+  height: 82%;
+  width: 21%;
+  border: 2px solid #aeffac;
+  border-radius: 4px;
+  background-position: center;
+  background-size: cover;
+}
+
+.user-card .user-details {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.user-card .user-details h2 {
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.user-card .user-details p {
+  color: lightgrey;
+  line-height: 1.25;
+}
+
+@media (min-width: 360px){
   .sm\:appearance-none{
     -webkit-appearance: none;
        -moz-appearance: none;

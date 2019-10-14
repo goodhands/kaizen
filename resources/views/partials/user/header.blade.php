@@ -1,6 +1,9 @@
+@push('head-info')
+    <title>{{ $user->fullname() .' @'.$user->username .' on '. config('app.name') }}</title>    
+@endpush
 <div class="h-hero relative flex flex-col items-center">
         <div class="talents-wall h-hero w-full overflow-hidden flex flex-col items-center justify-center" :style="{
-                'background': 'linear-gradient(0deg, #AEFFAC, transparent), url(http://127.0.0.1:8000/images/user.jpg)',
+                'background': 'url(http://127.0.0.1:8000/images/joanna-kosinska-129039-unsplash.jpg)',
                 'backgroundPosition': 'center',
             }">
         </div>
@@ -13,7 +16,7 @@
                                 {{ $user->fullname() }}                     
                         </a>
                         @if($user->is_pro() || $user->is_team() )
-                            <a href="{{url($user->account_type)}}" title="Learn more">
+                            <a href="{{strtolower(url($user->account_type))}}" title="Learn more">
                                 <span class="pro-badge hover:bg-primary-light">
                                     {{strtoupper($user->account_type)}}
                                 </span>
