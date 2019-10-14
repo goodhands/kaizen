@@ -68,6 +68,11 @@ Route::group(['prefix' => '{username}'], function () {
     // Route::get('/photos?except={photo}', 'UserController@similar')->name('user.similarPhotos');    
 });
 
+Route::group(['prefix' => 'ajax'], function(){
+    Route::get('users/{username}/followers', 'AjaxController@followers');
+    Route::get('users/{username}/following', 'AjaxController@following');
+    Route::get('users/current', 'AjaxController@currentUser');
+});
 
 // Auth::routes();
 
