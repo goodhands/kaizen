@@ -2409,11 +2409,12 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ImagePopup_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ImagePopup.vue */ "./resources/js/components/ImagePopup.vue");
 /* harmony import */ var vue_feather_icons_icons_HeartIcon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-feather-icons/icons/HeartIcon */ "./node_modules/vue-feather-icons/icons/HeartIcon.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _utils_Loading__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils/Loading */ "./resources/js/components/utils/Loading.vue");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var vue_feather_icons_icons_EyeIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-feather-icons/icons/EyeIcon */ "./node_modules/vue-feather-icons/icons/EyeIcon.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _utils_Loading__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./utils/Loading */ "./resources/js/components/utils/Loading.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_5__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 //
@@ -2452,6 +2453,12 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 //
 //
 //
+//
+//
+//
+//
+//
+
 
 
 
@@ -2460,9 +2467,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    Loading: _utils_Loading__WEBPACK_IMPORTED_MODULE_3__["default"],
+    Loading: _utils_Loading__WEBPACK_IMPORTED_MODULE_4__["default"],
     ImagePopUp: _ImagePopup_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    HeartIcon: vue_feather_icons_icons_HeartIcon__WEBPACK_IMPORTED_MODULE_1__["default"]
+    HeartIcon: vue_feather_icons_icons_HeartIcon__WEBPACK_IMPORTED_MODULE_1__["default"],
+    EyeIcon: vue_feather_icons_icons_EyeIcon__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
@@ -2488,9 +2496,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   mounted: function mounted() {
     var _this = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_4___default.a.get(this.imageData).then(function (response) {
+    axios__WEBPACK_IMPORTED_MODULE_5___default.a.get(this.imageData).then(function (response) {
       if (_typeof(response.data) == 'object') {
-        _this.data = response.data.photos;
+        _this.data = response.data;
       } else {
         _this.error = response.data;
       }
@@ -2518,7 +2526,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   },
   filters: {
     agoDate: function agoDate(value) {
-      return moment__WEBPACK_IMPORTED_MODULE_2___default()(value).calendar();
+      return moment__WEBPACK_IMPORTED_MODULE_3___default()(value).calendar();
     },
     title: function title(_title) {
       return _title.length > 35 ? _title.substr(0, 35) + '...' : _title;
@@ -22301,6 +22309,65 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/vue-feather-icons/icons/EyeIcon.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/vue-feather-icons/icons/EyeIcon.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var babel_helper_vue_jsx_merge_props__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! babel-helper-vue-jsx-merge-props */ "./node_modules/babel-helper-vue-jsx-merge-props/index.js");
+/* harmony import */ var babel_helper_vue_jsx_merge_props__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(babel_helper_vue_jsx_merge_props__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'EyeIcon',
+  props: {
+    size: {
+      type: String,
+      default: '24',
+      validator: function validator(s) {
+        return !isNaN(s) || s.length >= 2 && !isNaN(s.slice(0, s.length - 1)) && s.slice(-1) === 'x';
+      }
+    }
+  },
+  functional: true,
+  render: function render(h, ctx) {
+    var size = ctx.props.size.slice(-1) === 'x' ? ctx.props.size.slice(0, ctx.props.size.length - 1) + 'em' : parseInt(ctx.props.size) + 'px';
+    var attrs = ctx.data.attrs || {};
+    attrs.width = attrs.width || size;
+    attrs.height = attrs.height || size;
+    ctx.data.attrs = attrs;
+    return h("svg", babel_helper_vue_jsx_merge_props__WEBPACK_IMPORTED_MODULE_0___default()([{
+      attrs: {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: "24",
+        height: "24",
+        viewBox: "0 0 24 24",
+        fill: "none",
+        stroke: "currentColor",
+        "stroke-width": "2",
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round"
+      },
+      "class": "feather feather-eye"
+    }, ctx.data]), [h("path", {
+      attrs: {
+        d: "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+      }
+    }), h("circle", {
+      attrs: {
+        cx: "12",
+        cy: "12",
+        r: "3"
+      }
+    })]);
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/vue-feather-icons/icons/HeartIcon.js":
 /*!***********************************************************!*\
   !*** ./node_modules/vue-feather-icons/icons/HeartIcon.js ***!
@@ -24687,7 +24754,7 @@ var render = function() {
           _c("div", { staticClass: "w-full flex flex-row items-center" }, [
             _c("div", { staticClass: "w-1/12" }, [
               _c("img", {
-                staticClass: "rounded-full h-auto w-auto",
+                staticClass: "rounded h-6 w-full",
                 attrs: { src: comment.commentator.avatar, alt: "" }
               })
             ]),
@@ -25753,7 +25820,13 @@ var render = function() {
               _vm._v("Please wait, our servers are fetching your photos...")
             ])
           ])
-        : _vm._e(),
+        : _c("div", { staticClass: "error-no-image" }, [
+            _c("h2", { staticClass: "flex text-centered" }, [
+              _vm._v(
+                "\n            We couldn't find any image for this user\n        "
+              )
+            ])
+          ]),
       _vm._v(" "),
       _vm._l(this.data, function(item, index) {
         return _c(

@@ -3,6 +3,11 @@
         <loading v-if="this.data.length == 0 && this.error == '' ">
             <h2>Please wait, our servers are fetching your photos...</h2>
         </loading>
+        <div class="error-no-image" v-else>
+            <h2 class="flex text-centered">
+                We couldn't find any image for this user
+            </h2>
+        </div>
         <div class="image-item" v-for="(item, index) in this.data" :key="index" @mouseenter="showMeta(item.id)" @mouseleave="hideMeta(item.id)">
             <a :href="'/photo/'+item.slug" @click="shotModal(item.slug)">
                 <div class="item-display" :style="{ 'background': 'linear-gradient(40deg, rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('+item.asset_url+')', 'backgroundPosition':'center','backgroundSize':'cover','backgroundRepeat':'no-repeat' }">
@@ -37,6 +42,7 @@
 <script>
 import ImagePopUp from './ImagePopup.vue'
 import HeartIcon from 'vue-feather-icons/icons/HeartIcon'
+import EyeIcon from 'vue-feather-icons/icons/EyeIcon'
 import moment from 'moment'
 import Loading from './utils/Loading';
 import axios from 'axios';
@@ -47,6 +53,7 @@ export default {
         Loading,
         ImagePopUp,
         HeartIcon,
+        EyeIcon,
     },
 
     data() {
@@ -77,7 +84,7 @@ export default {
     mounted() {
         axios.get(this.imageData).then(response => {
             if(typeof response.data == 'object'){
-                this.data = response.data.photos
+                this.data = response.data
             }else{
                 this.error = response.data
             }
