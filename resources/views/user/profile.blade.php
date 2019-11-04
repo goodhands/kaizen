@@ -5,8 +5,18 @@
     <div class="p-primary bg-white-ter relative">
         <div class="flex flex-row">
             @include('partials.user.sidebar')
-            <div class="w-9/12 flex flex-row flex-wrap justify-between">
-                <image-card :style="{'width':'100%', 'display' : 'flex', 'justify-content':'space-evenly'}" :data-profile="true"></image-card>
+            <div class="w-9/12">
+                @if(count($user->photos) < 1)
+                    @ifStranger($user)
+                        Hello, {{$user->username}} has not uploaded any photos yet
+                        {{$user->firstname}}
+                        {{$user->lastname}}
+                    @else
+                        Hey {{$user->username}}, why not upload your first photo today? It's simple and straightforward.
+                    @endif
+                @else
+                @endif
+            <image-card :data-profile="true" url="{{ $user->username . '/photo?json'}}"></image-card>
             </div>
         </div>
     </div>

@@ -6,7 +6,6 @@
                     'backgroundPosition': 'center',
                 }">
             </div>
-            <!-- <filter-section></filter-section> -->
             <div class="w-full h-6 bg-white relative user-profile-subhead flex flex-row justify-center items-center">
                 <div class="user-avatar-area flex flex-row justify-between items-center">
                     <img src="http://127.0.0.1:8000/images/user.jpg" alt="">
@@ -57,8 +56,8 @@
                     </div>
                 </div>
                 <div class="w-9/12 flex flex-row flex-wrap justify-between">
-                    <image-card v-for="item in 24" :key="item" :style="{'width':'32%'}"></image-card>
-                    <image-popup v-if="this.$store.state.showImageModal" :modal="true" :data="popimageData"></image-popup>
+                    <image-card  :key="item" :style="{'width':'32%'}"></image-card>
+                    <!-- <image-popup v-if="this.$store.state.showImageModal" :modal="true" :data="popimageData"></image-popup> -->
                 </div>
             </div>
         </div>
@@ -67,12 +66,12 @@
 
 <script>
 import ImageCard from './ImageCard.vue'
-import Filter from './Filter.vue'
+import FilterComponent from './FilterComponent.vue'
 
 export default {
     components:{
         ImageCard,
-        Filter
+        FilterComponent
     }
 }
 </script>

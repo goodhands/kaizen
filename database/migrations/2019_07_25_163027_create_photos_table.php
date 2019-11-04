@@ -18,6 +18,7 @@ class CreatePhotosTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('slug');
+            $table->integer('category_id');
             $table->integer('user_id');
             /**
              * This area may be stored in cache so we don't have to compute every time.
@@ -33,6 +34,7 @@ class CreatePhotosTable extends Migration
              */
             $table->boolean('was_drafted')->default(0); //was this item saved as draft before it was uploaded?
             $table->boolean('is_project')->default(0); //was this item uploaded as part of a project?
+            $table->boolean('is_team')->default(0); //was this picture uploaded as part of a team work or under a team?
             /**
              * Morph:=> for the purpose of adding a project or a single photo
              */

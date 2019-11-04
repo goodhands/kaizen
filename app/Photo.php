@@ -5,9 +5,20 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use BeyondCode\Comments\Traits\HasComments;
+use App\Category;
+use App\Tag;
+use BeyondCode\Comments\Comment;
 
 class Photo extends Model
 {
+
+    use HasComments;
+
+    public function getRouteKeyName(){
+        return 'slug';
+    }
+
     /**
      * the experience convention means 'how you experience the photo'
      */
@@ -18,7 +29,7 @@ class Photo extends Model
     /**
      * fetch the owner of the photo
      */
-    public function owner(){
+    public function user(){
         return $this->belongsTo(User::class);
     }
 
@@ -37,4 +48,16 @@ class Photo extends Model
     public function likes(){
         return $this->belongsToMany(User::class)->withTimestamps();
     }
+
+    /**
+     * Fetch the tags of this photo
+     */
+    public function tags(){
+        return $this->belongsToMany(Tag::class);
+    }
+
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
+
 }

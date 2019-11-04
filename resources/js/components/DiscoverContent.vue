@@ -58,9 +58,7 @@
                     </div>
                 </div>
                 <div class="w-8/12 flex flex-row justify-between items-center" :style="{'margin' : '10px auto'}">
-                    <image-card :style="{ 'width' : '32%', 'margin-bottom': '0' }"></image-card>
-                    <image-card :style="{ 'width' : '32%', 'margin-bottom': '0' }"></image-card>
-                    <image-card :style="{ 'width' : '32%', 'margin-bottom': '0' }"></image-card>
+                    <image-card :url="'http://127.0.0.1:8000/photo/photo-slug?json=true'"></image-card>
                 </div>
             </div>
             <div class="talent-container w-full h-auto border-b-1 border-grey flex flex-row">
@@ -110,13 +108,13 @@
 
 <script>
 import ImageCard from './ImageCard.vue'
-import Filter from './Filter.vue'
+import FilterComponent from './FilterComponent.vue'
 import ImagePopUp from './ImagePopup.vue'
 
 export default {
     components:{
         ImageCard,
-        Filter,
+        FilterComponent,
         ImagePopUp
     },
 

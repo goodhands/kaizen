@@ -24,7 +24,7 @@ class UserController extends Controller
     }
 
     public function profile(User $username){
-        Auth::loginUsingId($username->id);  
+        Auth::loginUsingId(2);
         return view("user.profile", [
             "user" => $username
         ]);
@@ -43,6 +43,9 @@ class UserController extends Controller
     }
 
     public function photos(User $username){
-        return $username->photos;
+        $username->username;
+        $username->photos;
+        return $username; 
+        // return $username->photos;
     }
 }

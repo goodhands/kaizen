@@ -28,8 +28,8 @@ class CreateUsersTable extends Migration
             $table->string('zip_code', 10)->nullable();
             $table->string('bio', 200)->nullable();
             $table->string('account_type', 10); //Team, Free or Pro
-            $table->string('avatar', 50)->nullable();
-            $table->string('profession', 30)->nullable(); //Child Photographer, Lifestyle Photographer, etc
+            $table->string('avatar', 199)->nullable();
+            $table->string('profession', 50)->nullable(); //Child Photographer, Lifestyle Photographer, etc
             $table->boolean('is_pro'); // Bool; Pro or !Pro
             $table->rememberToken()->nullable();
             $table->timestamps();
