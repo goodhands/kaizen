@@ -76,13 +76,7 @@ Vue.directive('overlay-bg', {
 Vue.component('pulse-loader', require('vue-spinner/src/PulseLoader.vue'));
 Vue.component('grid-loader', require('vue-spinner/src/GridLoader.vue'));
 
-
-/***
- * Feather Icon
- */
-import { AirplayIcon, AtSignIcon, HeartIcon, SaveIcon } from 'vue-feather-icons'
-// Vue.component('heart-icon', require('vue-feather-icons/icons/HeartIcon'));
-/**
+/*
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
@@ -92,7 +86,7 @@ import axios from 'axios';
 
 const app = new Vue({
     el: '#app',
-    mixins: [ require('./mixins/user') ],
+    // mixins: [ require('./mixins/user') ],
     store,
     data() {
         return {

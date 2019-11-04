@@ -16,7 +16,7 @@
                     @endif
                 @else
                 @endif
-                <image-card :data-profile="true"></image-card>
+            <image-card :data-profile="true" url="{{ $user->username . '/photo?json'}}"></image-card>
             </div>
         </div>
     </div>
