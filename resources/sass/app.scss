@@ -157,6 +157,10 @@ textarea{
   background-color: #f7f7f7;
 }
 
+.app-body{
+  @apply bg-white-ter relative
+}
+
 .image-popup{
   z-index: 999;
 }

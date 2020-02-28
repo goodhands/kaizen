@@ -4,11 +4,8 @@
             'backgroundPosition': 'center',
         }">
 
-        <h2>
+        <h2 class="title text-lg">
             {{$category->label}}
         </h2>
-        <p>
-            {{count($photos)}} photos
-        </p>
     </div>
 </div>

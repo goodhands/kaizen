@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\User;
 use App\Photo;
 use Illuminate\Http\Request;
@@ -31,5 +32,9 @@ class AjaxController extends Controller
 
     public function currentUser(){
         return Auth::user();
+    }
+
+    public function category(Category $category){
+        return $category->photos;
     }
 }

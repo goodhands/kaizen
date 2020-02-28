@@ -6,13 +6,13 @@
                     <div class="w-8/12 flex flex-row items-center">
                         <img :src="item.user.avatar" alt="" class="rounded-full h-12 w-12">
                         <div class="flex flex-col mx-2">
-                            <a :href="item.user.username">
+                            <a :href="'/'+item.user.username">
                                 <h2 class="leading-normal font-medium text-1xl">
                                     {{ item.user.firstname }} {{ item.user.lastname }}
                                 </h2>
                             </a>
                             <p class="leading-none text-sm">
-                                {{ item.user.profession }}
+                                {{ item.user.profession }} | {{"@"+item.user.username}} 
                             </p>
                             <p class="leading-none mt-1 text-light-grey text-xs">
                                 Uploaded to <a :href="'/category/'+item.category.slug" class="hover:underline">{{item.category.label}}</a>
@@ -20,11 +20,8 @@
                         </div>
                     </div>
                     <div class="w-2/12 flex flex-row items-center justify-between content-center">
-                        <button class="like-btn">
-                            <img src="images/favorite.svg" class="h-4 w-4" alt="">
-                        </button>
-                        <button class="like-btn">
-                            <img src="images/save.svg" class="h-4 w-4" alt="">
+                        <button @click="follow(item.user.username)" class="btn-primary font-medium w-full">
+                            {{followAction}}
                         </button>
                     </div>
                 </div>
@@ -37,13 +34,18 @@
             <template v-slot:footer>
                 <div class="image-display-footer p-5">
                     <div class="sm-area flex flex-row justify-between">
-                        <div class="sm-btn flex flex-row justify-between">
+                        <div class="items-center sm-btn flex flex-row justify-between">
                             <h2 class="font-bold mb-2">
                                 {{item.title}}
                             </h2>
                         </div>
-                        <div class="sm-follow flex">
-                            <a href="#" class="btn-primary font-medium">Follow {{item.user.username}}</a>
+                        <div class="w-2/12 flex flex-row items-center justify-between content-center">
+                            <button class="like-btn" @click="favourite(item.slug)">
+                                <img src="images/favorite.svg" class="h-4 w-4" alt="">
+                            </button>
+                            <button class="like-btn" @click="save(item.slug)">
+                                <img src="images/save.svg" class="h-4 w-4" alt="">
+                            </button>
                         </div>
                     </div>
                     <span class="dash"></span>
@@ -52,7 +54,7 @@
                             {{ item.asset_description }}
                         </p>
                     </div>
-                    <span class="dash block h-dash w-full bg-dark-grey my-2"></span>
+                    <span class="dash"></span>
                     <div class="meta-area my-3 flex flex-row justify-between">
                         <div class="meta-item w-4/12">
                             <h1 class="title text-sm text-subtitle">Settings</h1>
@@ -93,7 +95,7 @@
                             <h1 class="title text-sm text-subtitle">Tooling</h1>
                             <div class="meta-item-child flex flex-row flex-wrap">
                                 <a href="#">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Adobe_Photoshop_Express_logo.svg/1024px-Adobe_Photoshop_Express_logo.svg.png" alt="" class="h-4 w-4"> Adobe Photoshop
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Adobe_Photoshop_Express_logo.svg/1024px-Adobe_Photoshop_Express_logo.svg.png" alt="" class="h-4 w-4">Photoshop
                                 </a>
                             </div>
                         </div>
@@ -146,9 +148,14 @@ import Axios from 'axios'
 export default {
     data() {
         return {
-            item: []
+            item: [],
+            followAction: "Follow",
         }
     },
+
+    mixins: [
+        require('../mixins/user.js')
+    ],
 
     filters: {
         tags(tagArray){
@@ -174,7 +181,7 @@ export default {
             // return half the size of the normal text
             var size = text.length;
             var shortenBy = size / 2;
-            return text.substring(0, 30);
+            return text.substring(0, 30)+'...';
         }
     },
 

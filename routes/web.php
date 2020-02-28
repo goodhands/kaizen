@@ -15,6 +15,8 @@
  * Every route is first a folder (view) because they can have sub pages
  */
 
+use App\Http\Controllers\AjaxController;
+
 Route::get('/', function () {
     return view('index');
 });
@@ -45,6 +47,7 @@ Route::group(['prefix' => 'category/{category}'], function () {
 
 Route::group(['prefix' => '{username}'], function () {
     Route::get('/', 'UserController@profile')->name('user.view');    
+    Route::post('/follow', 'UserController@follow')->name('user.follow');    
     Route::get('/following', 'UserController@following')->name('user.following');    
     Route::get('/followers', 'UserController@followers')->name('user.followers');    
     Route::get('/photos', 'UserController@photos')->name('user.photos');    
@@ -52,6 +55,7 @@ Route::group(['prefix' => '{username}'], function () {
 });
 
 Route::group(['prefix' => 'ajax'], function(){
+    Route::get('category/{category}/photos', 'AjaxController@category');
     Route::get('users/{username}/followers', 'AjaxController@followers');
     Route::get('users/{username}/following', 'AjaxController@following');
     Route::get('users/current', 'AjaxController@currentUser');

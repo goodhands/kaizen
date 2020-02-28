@@ -6,4 +6,8 @@
     @endpush
 @section('main_content')
     @include('partials.category.header')
+    <div class="app-body p-primary">
+        <div class="flex flex-row"></div>
+        <image-card url="{{ '/ajax/category/' . $category->slug . '/photos'}}"></image-card>
+    </div>
 @endsection

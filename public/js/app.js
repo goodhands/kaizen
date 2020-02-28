@@ -2453,11 +2453,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 
@@ -2550,7 +2545,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SimilarImageCard_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SimilarImageCard.vue */ "./resources/js/components/SimilarImageCard.vue");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
-var _data$filters$compone;
+var _data$mixins$filters$;
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -2693,16 +2688,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 
 
-/* harmony default export */ __webpack_exports__["default"] = (_data$filters$compone = {
+/* harmony default export */ __webpack_exports__["default"] = (_data$mixins$filters$ = {
   data: function data() {
     return {
-      item: []
+      item: [],
+      followAction: "Follow"
     };
   },
+  mixins: [__webpack_require__(/*! ../mixins/user.js */ "./resources/js/mixins/user.js")],
   filters: {
     tags: function tags(tagArray) {// tagArray.map();
     }
@@ -2718,17 +2717,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       document.body.style.overflowX = "hidden";
     }
   }
-}, _defineProperty(_data$filters$compone, "filters", {
+}, _defineProperty(_data$mixins$filters$, "filters", {
   shorten: function shorten(text) {
     // return half the size of the normal text
     var size = text.length;
     var shortenBy = size / 2;
-    return text.substring(0, 30);
+    return text.substring(0, 30) + '...';
   }
-}), _defineProperty(_data$filters$compone, "props", {
+}), _defineProperty(_data$mixins$filters$, "props", {
   data: String,
   modal: Boolean
-}), _defineProperty(_data$filters$compone, "mounted", function mounted() {
+}), _defineProperty(_data$mixins$filters$, "mounted", function mounted() {
   var _this = this;
 
   axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(this.data, {
@@ -2738,7 +2737,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }).then(function (response) {
     return _this.item = response.data.data;
   });
-}), _data$filters$compone);
+}), _data$mixins$filters$);
 
 /***/ }),
 
@@ -25820,13 +25819,7 @@ var render = function() {
               _vm._v("Please wait, our servers are fetching your photos...")
             ])
           ])
-        : _c("div", { staticClass: "error-no-image" }, [
-            _c("h2", { staticClass: "flex text-centered" }, [
-              _vm._v(
-                "\n            We couldn't find any image for this user\n        "
-              )
-            ])
-          ]),
+        : _vm._e(),
       _vm._v(" "),
       _vm._l(this.data, function(item, index) {
         return _c(
@@ -26023,7 +26016,9 @@ var render = function() {
                                     _c(
                                       "a",
                                       {
-                                        attrs: { href: _vm.item.user.username }
+                                        attrs: {
+                                          href: "/" + _vm.item.user.username
+                                        }
                                       },
                                       [
                                         _c(
@@ -26054,7 +26049,11 @@ var render = function() {
                                         _vm._v(
                                           "\n                            " +
                                             _vm._s(_vm.item.user.profession) +
-                                            "\n                        "
+                                            " | " +
+                                            _vm._s(
+                                              "@" + _vm.item.user.username
+                                            ) +
+                                            " \n                        "
                                         )
                                       ]
                                     ),
@@ -26099,22 +26098,27 @@ var render = function() {
                                   "w-2/12 flex flex-row items-center justify-between content-center"
                               },
                               [
-                                _c("button", { staticClass: "like-btn" }, [
-                                  _c("img", {
-                                    staticClass: "h-4 w-4",
-                                    attrs: {
-                                      src: "images/favorite.svg",
-                                      alt: ""
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "btn-primary font-medium w-full",
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.follow(
+                                          _vm.item.user.username
+                                        )
+                                      }
                                     }
-                                  })
-                                ]),
-                                _vm._v(" "),
-                                _c("button", { staticClass: "like-btn" }, [
-                                  _c("img", {
-                                    staticClass: "h-4 w-4",
-                                    attrs: { src: "images/save.svg", alt: "" }
-                                  })
-                                ])
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                        " +
+                                        _vm._s(_vm.followAction) +
+                                        "\n                    "
+                                    )
+                                  ]
+                                )
                               ]
                             )
                           ]
@@ -26155,7 +26159,7 @@ var render = function() {
                                 "div",
                                 {
                                   staticClass:
-                                    "sm-btn flex flex-row justify-between"
+                                    "items-center sm-btn flex flex-row justify-between"
                                 },
                                 [
                                   _c("h2", { staticClass: "font-bold mb-2" }, [
@@ -26168,20 +26172,56 @@ var render = function() {
                                 ]
                               ),
                               _vm._v(" "),
-                              _c("div", { staticClass: "sm-follow flex" }, [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "btn-primary font-medium",
-                                    attrs: { href: "#" }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "Follow " + _vm._s(_vm.item.user.username)
-                                    )
-                                  ]
-                                )
-                              ])
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "w-2/12 flex flex-row items-center justify-between content-center"
+                                },
+                                [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass: "like-btn",
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.favourite(_vm.item.slug)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c("img", {
+                                        staticClass: "h-4 w-4",
+                                        attrs: {
+                                          src: "images/favorite.svg",
+                                          alt: ""
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass: "like-btn",
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.save(_vm.item.slug)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c("img", {
+                                        staticClass: "h-4 w-4",
+                                        attrs: {
+                                          src: "images/save.svg",
+                                          alt: ""
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              )
                             ]
                           ),
                           _vm._v(" "),
@@ -26197,10 +26237,7 @@ var render = function() {
                             ])
                           ]),
                           _vm._v(" "),
-                          _c("span", {
-                            staticClass:
-                              "dash block h-dash w-full bg-dark-grey my-2"
-                          }),
+                          _c("span", { staticClass: "dash" }),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -26417,7 +26454,7 @@ var render = function() {
                                         }
                                       }),
                                       _vm._v(
-                                        " Adobe Photoshop\n                            "
+                                        "Photoshop\n                            "
                                       )
                                     ])
                                   ]
@@ -26572,7 +26609,7 @@ var render = function() {
                 ],
                 null,
                 false,
-                886953131
+                2392647507
               )
             },
             [
@@ -43224,6 +43261,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Loading_vue_vue_type_template_id_22415283___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/mixins/user.js":
+/*!*************************************!*\
+  !*** ./resources/js/mixins/user.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+module.exports = {
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get('/ajax/user/current').then(function (response) {
+      return _this.user = response.data;
+    })["catch"](function (error) {
+      return _this.user = error.data;
+    });
+  },
+  methods: {
+    follow: function follow(user) {
+      var _this2 = this;
+
+      axios.post('/' + user + '/follow').then(function (response) {
+        alert("Followed!");
+        _this2.followAction == 'Unfollow' ? 'Follow' : 'Unfollow';
+      })["catch"](function (error) {
+        return console.log(error);
+      });
+    }
+  }
+};
 
 /***/ }),
 

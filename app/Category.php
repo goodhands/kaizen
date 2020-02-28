@@ -4,9 +4,12 @@ namespace App;
 
 use App\Photo;
 use Illuminate\Database\Eloquent\Model;
+use Overtrue\LaravelFollow\Traits\CanBeFollowed;
 
 class Category extends Model
 {
+    use CanBeFollowed;
+    
     public function getRouteKeyName(){
         return 'slug';
     }
