@@ -61,7 +61,7 @@ module.exports = {
 
       height:{
         hero : '380px',
-        dash: '0.05rem',
+        dash: '0.06rem',
         '400': '400px',
         '300': '300px',
       },

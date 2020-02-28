@@ -42,6 +42,14 @@ class UserController extends Controller
         ]);
     }
 
+    public function follow(User $username){
+        return Auth::user()->toggleFollow($username, User::class);
+    }
+
+    public function unfollow(User $username){
+        return Auth::user()->unfollow($username, User::class);
+    }
+
     public function photos(User $username){
         $username->username;
         $username->photos;

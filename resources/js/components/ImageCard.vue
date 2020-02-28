@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-row flex-wrap justify-between w-full">
-        <loading v-if="this.data.length == 0">
+        <loading v-if="this.data.length == 0 && this.error == '' ">
             <h2>Please wait, our servers are fetching your photos...</h2>
         </loading>
         <div class="image-item" v-for="(item, index) in this.data" :key="index" @mouseenter="showMeta(item.id)" @mouseleave="hideMeta(item.id)">
@@ -35,23 +35,28 @@
 </template>
 
 <script>
-import Axios from 'axios'
 import ImagePopUp from './ImagePopup.vue'
 import HeartIcon from 'vue-feather-icons/icons/HeartIcon'
+import EyeIcon from 'vue-feather-icons/icons/EyeIcon'
 import moment from 'moment'
 import Loading from './utils/Loading';
+import axios from 'axios';
+import Axios from 'axios';
+
 export default {
     components:{
         Loading,
         ImagePopUp,
         HeartIcon,
+        EyeIcon,
     },
 
     data() {
         return {
             data: [],
             selectedShot: "",
-            meta: ''
+            meta: '',
+            error: '',
         }
     },
 
@@ -72,9 +77,15 @@ export default {
     },
 
     mounted() {
-        Axios.get(this.imageData).then(response => {
-            (this.data = response.data)
-        });
+        axios.get(this.imageData).then(response => {
+            if(typeof response.data == 'object'){
+                this.data = response.data
+            }else{
+                this.error = response.data
+            }
+        }).catch(error => (
+            this.error = error.data
+        ))
     },
 
     methods: {

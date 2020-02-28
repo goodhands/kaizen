@@ -2,7 +2,7 @@
     <div>
         <div class="filter-area px-20 border-b-1 border-faint-black">
             <div class="fitler-items sm:w-1/2 overflow-hidden h-full flex flex-row items-center justify-between">
-                <a v-for="category in categories" :key="category.id" :href="'/photo/'+category.slug" :class="isActive(category.slug) ? 'filter-link filter-link-active' : 'filter-link' ">{{category.label | ucfirst}}</a>
+                <a v-for="category in categories" :key="category.id" :href="'/category/'+category.slug" :class="isActive(category.slug) ? 'filter-link filter-link-active' : 'filter-link' ">{{category.label | ucfirst}}</a>
             </div>
 
             <div class="filters-control sm:w-2/5 flex flex-row justify-end">
@@ -70,6 +70,10 @@ export default {
     filters:{
         ucfirst(string){
             return string.charAt(0).toUpperCase()+string.substring(1, string.length)
+        },
+
+        categoryLower(string){
+            return string.charAt(0).toLowerCase()+string.substring(1, string.length);
         }
     },
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\User;
 use App\Photo;
 use App\Token;
@@ -133,6 +134,13 @@ class PhotoController extends Controller
 
             return$photo;
         }
-
     }
+
+    /**
+     * Fetch photos belonging to the same category
+     */
+    public function category(Category $category){
+        return view('photo.category')->with(['photos' => $category->photos, 'category' => $category]);
+    }
+
 }

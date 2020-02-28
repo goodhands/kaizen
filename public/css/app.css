@@ -3856,7 +3856,7 @@ video {
 }
 
 .h-dash{
-  height: 0.05rem;
+  height: 0.06rem;
 }
 
 .leading-none{
@@ -7861,6 +7861,11 @@ textarea:hover {
   background-color: #f7f7f7;
 }
 
+.app-body {
+  background-color: #F9F9F9;
+  position: relative;
+}
+
 .image-popup {
   z-index: 999;
 }
@@ -7967,7 +7972,7 @@ textarea:hover {
 
 .dash {
   display: block;
-  height: 0.05rem;
+  height: 0.06rem;
   width: 100%;
   background-color: #efeeee;
   margin-top: 0.5rem;
@@ -10239,7 +10244,7 @@ textarea:hover {
   }
 
   .sm\:h-dash{
-    height: 0.05rem;
+    height: 0.06rem;
   }
 
   .sm\:leading-none{
@@ -15327,7 +15332,7 @@ textarea:hover {
   }
 
   .md\:h-dash{
-    height: 0.05rem;
+    height: 0.06rem;
   }
 
   .md\:leading-none{
@@ -20415,7 +20420,7 @@ textarea:hover {
   }
 
   .lg\:h-dash{
-    height: 0.05rem;
+    height: 0.06rem;
   }
 
   .lg\:leading-none{
@@ -25503,7 +25508,7 @@ textarea:hover {
   }
 
   .xl\:h-dash{
-    height: 0.05rem;
+    height: 0.06rem;
   }
 
   .xl\:leading-none{

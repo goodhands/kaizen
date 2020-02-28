@@ -12,7 +12,7 @@
         <div class="comment-item" v-for="comment in this.comments" :key="comment.id">
             <div class="w-full flex flex-row items-center">
                 <div class="w-1/12">
-                    <img :src="comment.commentator.avatar" alt="" class="rounded-full h-auto w-auto">
+                    <img :src="comment.commentator.avatar" alt="" class="rounded h-6 w-full">
                 </div>
                 <div class="flex flex-col mx-2 w-11/12">
                     <a :href=" '/'+comment.commentator.username">
